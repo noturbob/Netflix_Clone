@@ -4,25 +4,61 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix Clone</title>
+    <style>
+        @font-face {
+            font-family: 'Netflix Sans';
+            src: url('https://example.com/path-to-netflix-sans.woff2') format('woff2');
+        }
+        body {
+            background-color: #141515;
+            color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            color: white;
+            font-family: 'Netflix Sans', sans-serif;
+            font-size: 50px;
+            font-weight: 300;
+        }
+        .profiles {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .profile {
+            text-align: center;
+        }
+        .profile img {
+            width: 150px;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-<body background=color: #141515>
+<body>
     <h1>Who's watching?</h1>
     <div class="profiles">
         <div class="profile">
-            <img src=https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/bobbyProfile.png alt="Bobby">
+            <img src="https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/bobbyProfile.png" alt="Bobby">
             <p>Bobby</p>
         </div>
         <div class="profile">
-            <img src=https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/hobbyProfile.png alt="Hobby">
+            <img src="https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/hobbyProfile.png" alt="Hobby">
             <p>Hobby</p>
         </div>
         <div class="profile">
-            <img src=https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/shirleyProfile.png alt="Shirley">
+            <img src="https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/shirleyProfile.png" alt="Shirley">
             <p>Shirley</p>
         </div>
         <div class="profile">
-            <img src=https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/piyushProfile.png alt="Piyush">
+            <img src="https://raw.githubusercontent.com/noturbob/Netflix_Clone/refs/heads/main/piyushProfile.png" alt="Piyush">
             <p>Piyush</p>
         </div>
+    </div>
 </body>
 </html>
