@@ -3,11 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Netflix Clone</title>
+    <style>
+        /* Reset margins and paddings */
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Fullscreen video background */
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        /* Mute button */
+        .mute-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Text overlay styles */
+        .content {
+            position: relative;
+            color: white;
+            padding: 20px;
+            max-width: 700px;
+            z-index: 1;
+        }
+
+        .title {
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .subtitle {
+            margin: 10px 0;
+            font-size: 1.2rem;
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            color: black;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .button:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        /* Slider styles */
+        .slider-container {
+            position: relative;
+            margin-top: 300px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .slider {
+            display: flex;
+            gap: 10px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .slider img {
+            height: 150px;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .arrow.left {
+            left: 10px;
+        }
+
+        .arrow.right {
+            right: 10px;
+        }
+    </style>
 </head>
-<styles> 
-    
 <body>
-   <img src="https://cdn1.iconfinder.com/data/icons/logos-brands-in-colors/7500/Netflix_Logo_RGB-512.png" alt="Logo" style="width: 100px; left: 10px; top: 10px; position: absolute;">
+    <!-- Video background -->
+    <video autoplay loop muted class="video-background" id="background-video">
+        <source src="C:\Users\hp\OneDrive\Desktop\Netflix\bobbyPage\vincenzoBG.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Mute Button -->
+    <button class="mute-button" id="mute-button">Mute</button>
+
+    <!-- Text overlay -->
+    <div class="content">
+        <div class="title">Vincenzo</div>
+        <div class="subtitle">
+            He's a consigliere with movie-villain good looks. She's a lawyer
+            with a savage sense of humor. They'll do whatever it takes to take
+            down their enemies..
+        </div>
+        <div class="buttons">
+            <a href="#" class="button">Play</a>
+            <a href="#" class="button">More Info</a>
+        </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="slider-container">
+        <button class="arrow left" id="arrow-left">&#10094;</button>
+        <div class="slider" id="slider">
+            <img src="https://via.placeholder.com/200x150?text=Movie+1" alt="Movie 1">
+            <img src="https://via.placeholder.com/200x150?text=Movie+2" alt="Movie 2">
+            <img src="https://via.placeholder.com/200x150?text=Movie+3" alt="Movie 3">
+            <img src="https://via.placeholder.com/200x150?text=Movie+4" alt="Movie 4">
+            <img src="https://via.placeholder.com/200x150?text=Movie+5" alt="Movie 5">
+            <img src="https://via.placeholder.com/200x150?text=Movie+6" alt="Movie 6">
+            <img src="https://via.placeholder.com/200x150?text=Movie+7" alt="Movie 7">
+            <img src="https://via.placeholder.com/200x150?text=Movie+8" alt="Movie 8">
+        </div>
+        <button class="arrow right" id="arrow-right">&#10095;</button>
+    </div>
+
+    <script>
+        // Mute/unmute video
+        const video = document.getElementById('background-video');
+        const muteButton = document.getElementById('mute-button');
+
+        muteButton.addEventListener('click', () => {
+            if (video.muted) {
+                video.muted = false;
+                muteButton.textContent = 'Mute';
+            } else {
+                video.muted = true;
+                muteButton.textContent = 'Unmute';
+            }
+        });
+
+        // Slider functionality
+        const slider = document.getElementById('slider');
+        const arrowLeft = document.getElementById('arrow-left');
+        const arrowRight = document.getElementById('arrow-right');
+
+        let scrollAmount = 0;
+
+        arrowRight.addEventListener('click', () => {
+            scrollAmount += 200; // Adjust scroll distance as needed
+            slider.style.transform = `translateX(-${scrollAmount}px)`;
+        });
+
+        arrowLeft.addEventListener('click', () => {
+            scrollAmount = Math.max(0, scrollAmount - 200); // Prevent scrolling past the start
+            slider.style.transform = `translateX(-${scrollAmount}px)`;
+        });
+    </script>
 </body>
 </html>
