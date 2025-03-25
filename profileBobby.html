@@ -182,12 +182,12 @@
         let scrollAmount = 0;
 
         arrowRight.addEventListener('click', () => {
-            scrollAmount += 200; // Adjust scroll distance as needed
+            scrollAmount += 4; // Adjust scroll distance as needed
             slider.style.transform = `translateX(-${scrollAmount}px)`;
         });
 
         arrowLeft.addEventListener('click', () => {
-            scrollAmount = Math.max(0, scrollAmount - 200); // Prevent scrolling past the start
+            scrollAmount = Math.max(0, scrollAmount - 4); // Prevent scrolling past the start
             slider.style.transform = `translateX(-${scrollAmount}px)`;
         });
     </script>
